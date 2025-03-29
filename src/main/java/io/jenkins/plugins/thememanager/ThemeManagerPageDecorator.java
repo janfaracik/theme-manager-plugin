@@ -23,7 +23,10 @@ import org.kohsuke.stapler.StaplerRequest2;
 @Symbol("themeManager")
 public class ThemeManagerPageDecorator extends PageDecorator {
 
-    private ThemeManagerFactory theme;
+    private ThemeManagerFactory lightTheme;
+
+    private ThemeManagerFactory darkTheme;
+
     private boolean disableUserThemes;
 
     public ThemeManagerPageDecorator() {
@@ -48,12 +51,21 @@ public class ThemeManagerPageDecorator extends PageDecorator {
     }
 
     @DataBoundSetter
-    public void setTheme(ThemeManagerFactory theme) {
-        this.theme = theme;
+    public void setLightTheme(ThemeManagerFactory theme) {
+        this.lightTheme = theme;
     }
 
-    public ThemeManagerFactory getTheme() {
-        return theme;
+    public ThemeManagerFactory getLightTheme() {
+        return lightTheme;
+    }
+
+    @DataBoundSetter
+    public void setDarkTheme(ThemeManagerFactory theme) {
+        this.darkTheme = theme;
+    }
+
+    public ThemeManagerFactory getDarkTheme() {
+        return darkTheme;
     }
 
     public boolean isDisableUserThemes() {
@@ -71,7 +83,7 @@ public class ThemeManagerPageDecorator extends PageDecorator {
      * @return the active theme, or a no-op theme if not selected
      */
     @NonNull
-    public Theme findTheme() {
+    public Theme findLightTheme() {
         if (!disableUserThemes) {
             Theme userTheme = ThemeUserProperty.forCurrentUser();
             if (userTheme != null) {
@@ -79,14 +91,14 @@ public class ThemeManagerPageDecorator extends PageDecorator {
             }
         }
 
-        if (theme != null) {
-            return theme.getTheme();
+        if (lightTheme != null) {
+            return lightTheme.getTheme();
         }
         return new NoOpThemeManagerFactory().getTheme();
     }
 
     @NonNull
-    public ThemeManagerFactory findThemeFactory() {
+    public ThemeManagerFactory findLightThemeFactory() {
         if (!disableUserThemes) {
             ThemeManagerFactory userTheme = ThemeUserProperty.forCurrentUserFactory();
             if (userTheme != null) {
@@ -94,8 +106,8 @@ public class ThemeManagerPageDecorator extends PageDecorator {
             }
         }
 
-        if (theme != null) {
-            return theme;
+        if (lightTheme != null) {
+            return lightTheme;
         }
         return new NoOpThemeManagerFactory();
     }
@@ -109,7 +121,7 @@ public class ThemeManagerPageDecorator extends PageDecorator {
                 .flatMap(Set::stream)
                 .collect(Collectors.toSet());
 
-        ThemeManagerFactory themeManagerFactory = findThemeFactory();
+        ThemeManagerFactory themeManagerFactory = findLightThemeFactory();
         namespacedThemes.add(themeManagerFactory.getTheme().generateProperties());
 
         if (!themeManagerFactory.getDescriptor().isNamespaced()) {
@@ -124,14 +136,14 @@ public class ThemeManagerPageDecorator extends PageDecorator {
 
     @SuppressWarnings("unused") // called by jelly
     public String getThemeKey() {
-        ThemeManagerFactory themeFactory = findThemeFactory();
+        ThemeManagerFactory themeFactory = findLightThemeFactory();
 
         return themeFactory.getDescriptor().getThemeKey();
     }
 
     @SuppressWarnings("unused") // called by jelly
     public boolean isRespectSystemAppearance() {
-        ThemeManagerFactory themeFactory = findThemeFactory();
+        ThemeManagerFactory themeFactory = findLightThemeFactory();
 
         return themeFactory.getTheme().isRespectSystemAppearance();
     }
