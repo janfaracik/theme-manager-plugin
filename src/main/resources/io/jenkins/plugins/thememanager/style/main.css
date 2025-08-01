@@ -1,3 +1,87 @@
+.everything {
+    display: flex;
+    flex-direction: column;
+}
+
+.paracetamol {
+    display: flex;
+    margin-left: auto;
+}
+
+.idkkkkkk {
+    display: flex;
+    flex-direction: column;
+    border: var(--jenkins-border-width) solid var(--input-border);
+    box-shadow: 0 10px 15px rgb(0, 0, 50, 0.025);
+    border-radius: 10px;
+    overflow: hidden;
+
+    svg {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.idkkk {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    padding-inline: 0.5rem;
+    font-weight: 450;
+
+    span {
+        text-box: cap alphabetic;
+    }
+
+    & > svg {
+        width: 1.125rem;
+    }
+}
+
+.idk {
+    display: flex;
+    align-items: center;
+    padding: var(--jenkins-border-width);
+    border: var(--jenkins-border);
+    background: var(--card-background);
+    border-radius: 100px;
+    gap: calc(var(--jenkins-border-width) * 2);
+}
+
+.drpepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--accent-color);
+    border-radius: 100px;
+    color: var(--background);
+    border: var(--jenkins-border--subtle);
+    cursor: pointer;
+
+    svg {
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+}
+
+.airpods {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    cursor: pointer;
+
+    svg {
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+}
+
 .app-theme-picker {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
