@@ -48,12 +48,12 @@
 
             <div class="paracetamol">
               <div class="idk">
-                <div class="drpepper">
+                <button class="jenkins-button jenkins-button--primary drpepper">
                   <l:icon src="symbol-sunny plugin-ionicons-api" />
-                </div>
-                <div class="airpods">
+                </button>
+                <button class="jenkins-button jenkins-button--tertiary airpods">
                   <l:icon src="symbol-moon-outline plugin-ionicons-api" />
-                </div>
+                </button>
               </div>
             </div>
           </div>

@@ -46,35 +46,28 @@
     border: var(--jenkins-border);
     background: var(--card-background);
     border-radius: 100px;
-    gap: calc(var(--jenkins-border-width) * 2);
+    gap: var(--jenkins-border-width);
 }
 
 .drpepper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 24px;
     height: 24px;
-    background: var(--accent-color);
     border-radius: 100px;
-    color: var(--background);
-    border: var(--jenkins-border--subtle);
-    cursor: pointer;
+    padding: 0;
+    min-height: 0;
 
     svg {
-        width: 0.75rem;
-        height: 0.75rem;
+        width: 0.875rem;
+        height: 0.875rem;
     }
 }
 
 .airpods {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 24px;
     height: 24px;
     border-radius: 100px;
-    cursor: pointer;
+    padding: 0;
+    min-height: 0;
 
     svg {
         width: 0.75rem;
